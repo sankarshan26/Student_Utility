@@ -16,23 +16,23 @@ function Topbar() {
         },
         {
           "text": "Difficulties increase the nearer we get to the goal.",
-          "author": "Johann Wolfgang von Goethe, type.fit"
+          "author": "Johann Wolfgang von Goethe"
         },
         {
           "text": "Fate is in your hands and no one elses",
-          "author": "Byron Pulsifer, type.fit"
+          "author": "Byron Pulsifer"
         },
         {
           "text": "Be the chief but never the lord.",
-          "author": "Lao Tzu, type.fit"
+          "author": "Lao Tzu"
         },
         {
           "text": "Nothing happens unless first we dream.",
-          "author": "Carl Sandburg, type.fit"
+          "author": "Carl Sandburg"
         },
         {
           "text": "Well begun is half done.",
-          "author": "Aristotle, type.fit"
+          "author": "Aristotle"
         },
         {
           "text": "Life is a learning experience, only if you learn.",
@@ -40,48 +40,62 @@ function Topbar() {
         },
         {
           "text": "Self-complacency is fatal to progress.",
-          "author": "Margaret Sangster, type.fit"
+          "author": "Margaret Sangster"
         },
         {
           "text": "Peace comes from within. Do not seek it without.",
-          "author": "Buddha, type.fit"
+          "author": "Buddha"
         },
         {
           "text": "What you give is what you get.",
-          "author": "Byron Pulsifer, type.fit"
+          "author": "Byron Pulsifer"
         },
         {
           "text": "We can only learn to love by loving.",
-          "author": "Iris Murdoch, type.fit"
+          "author": "Iris Murdoch"
         },
         {
           "text": "Life is change. Growth is optional. Choose wisely.",
-          "author": "Karen Clark, type.fit"
+          "author": "Karen Clark"
         },
         {
           "text": "You'll see it when you believe it.",
-          "author": "Wayne Dyer, type.fit"
+          "author": "Wayne Dyer"
         },
         {
           "text": "Today is the tomorrow we worried about yesterday.",
-          "author":  "type.fit"
+          "author":  "Anonymus"
         }
       ]
 
-      const x = Math.floor(Math.random()*16);
+      const x = Math.floor(Math.random() * 16);
 
-  return (
-    <>
-     <div className="bg-[#010b1c]  md:hidden flex flex-wrap w-full items-center text-base justify-center text-white py-4 px-0" >
-       <a href="#"  className="mr-5">To Do</a>
-       <a href="#" className="mr-5">Video Player</a>
-       <a href="#" className="mr-5">Notes</a>
-       <a href="#" className="mr-5">Bookmarks</a>
-</div>
-    <div className='hidden md:block bg-[#010b1c] text-center w-full py-4 px-8 md:min-w-[700px]'>
-        <h1 className='text-white text-2xl tracking-wide font-serif'>{data[x].text}</h1>
-    </div></>
-  )
-}
-
-export default Topbar
+      return (
+        <>
+          <div className="bg-[#010b1c] md:hidden flex flex-wrap w-full items-center text-base justify-center text-white py-4 px-0">
+            <a href="#" className="mr-5">
+              To Do
+            </a>
+            <a href="#" className="mr-5">
+              Video Player
+            </a>
+            <a href="#" className="mr-5">
+              Notes
+            </a>
+            <a href="#" className="mr-5">
+              Bookmarks
+            </a>
+          </div>
+          <div className="hidden md:flex justify-center w-full py-4 md:min-w-[700px]">
+            <div className="quote-box bg-[#010b1c] text-center text-white rounded p-4 border border-white">
+              <h1 className="text-white text-2xl tracking-wide font-serif">
+                {data[x].text}
+              </h1>
+              <p className="text-white mt-2">- {data[x].author}</p>
+            </div>
+          </div>
+        </>
+      );
+    }
+    
+    export default Topbar;
