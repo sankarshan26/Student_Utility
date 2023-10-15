@@ -259,117 +259,117 @@
 // }
 
 // export default Timer;
-import React, { useState, useEffect } from 'react';
+// import React, { useState, useEffect } from 'react';
 
-function Timer() {
-  const [totalSeconds, setTotalSeconds] = useState(0);
-  const [isActive, setIsActive] = useState(false);
+// function Timer() {
+//   const [totalSeconds, setTotalSeconds] = useState(0);
+//   const [isActive, setIsActive] = useState(false);
 
-  const [hours, setHours] = useState(0);
-  const [minutes, setMinutes] = useState(0);
-  const [seconds, setSeconds] = useState(0);
+//   const [hours, setHours] = useState(0);
+//   const [minutes, setMinutes] = useState(0);
+//   const [seconds, setSeconds] = useState(0);
 
-  const toggleTimer = () => {
-    setIsActive(!isActive);
-  };
+//   const toggleTimer = () => {
+//     setIsActive(!isActive);
+//   };
 
-  const resetTimer = () => {
-    setIsActive(false);
-    setTotalSeconds(0);
-    setHours(0);
-    setMinutes(0);
-    setSeconds(0);
-  };
+//   const resetTimer = () => {
+//     setIsActive(false);
+//     setTotalSeconds(0);
+//     setHours(0);
+//     setMinutes(0);
+//     setSeconds(0);
+//   };
 
-  useEffect(() => {
-    let interval;
+//   useEffect(() => {
+//     let interval;
 
-    if (isActive) {
-      interval = setInterval(() => {
-        if (totalSeconds <= 0) {
-          const beep = new Audio('beep.mp3'); // Replace with your audio file
-          beep.play();
-          clearInterval(interval);
-          setIsActive(false);
-        } else {
-          setTotalSeconds(totalSeconds - 1);
-          setHours(Math.floor(totalSeconds / 3600));
-          setMinutes(Math.floor((totalSeconds % 3600) / 60));
-          setSeconds(totalSeconds % 60);
-        }
-      }, 1000);
-    } else {
-      clearInterval(interval);
-    }
+//     if (isActive) {
+//       interval = setInterval(() => {
+//         if (totalSeconds <= 0) {
+//           const beep = new Audio('beep.mp3'); // Replace with your audio file
+//           beep.play();
+//           clearInterval(interval);
+//           setIsActive(false);
+//         } else {
+//           setTotalSeconds(totalSeconds - 1);
+//           setHours(Math.floor(totalSeconds / 3600));
+//           setMinutes(Math.floor((totalSeconds % 3600) / 60));
+//           setSeconds(totalSeconds % 60);
+//         }
+//       }, 1000);
+//     } else {
+//       clearInterval(interval);
+//     }
 
-    return () => clearInterval(interval);
-  }, [isActive, totalSeconds]);
+//     return () => clearInterval(interval);
+//   }, [isActive, totalSeconds]);
 
-  const handleInputChange = (e) => {
-    const { name, value } = e.target;
-    const intValue = parseInt(value, 10);
-    const isValid = !isNaN(intValue) && intValue >= 0;
+//   const handleInputChange = (e) => {
+//     const { name, value } = e.target;
+//     const intValue = parseInt(value, 10);
+//     const isValid = !isNaN(intValue) && intValue >= 0;
 
-    if (name === 'hours') {
-      setHours(isValid ? intValue : 0);
-    } else if (name === 'minutes') {
-      setMinutes(isValid ? intValue : 0);
-    } else if (name === 'seconds') {
-      setSeconds(isValid ? intValue : 0);
-    }
+//     if (name === 'hours') {
+//       setHours(isValid ? intValue : 0);
+//     } else if (name === 'minutes') {
+//       setMinutes(isValid ? intValue : 0);
+//     } else if (name === 'seconds') {
+//       setSeconds(isValid ? intValue : 0);
+//     }
 
-    const newTotalSeconds = hours * 3600 + minutes * 60 + seconds;
-    setTotalSeconds(newTotalSeconds);
-  };
+//     const newTotalSeconds = hours * 3600 + minutes * 60 + seconds;
+//     setTotalSeconds(newTotalSeconds);
+//   };
 
-  return (
-    <div className="text-center">
-      <h1 className="text-2xl font-bold mt-4">Timer</h1>
-      <div className="text-4xl mt-4">
-        {hours.toString().padStart(2, '0')}:
-        {minutes.toString().padStart(2, '0')}:
-        {seconds.toString().padStart(2, '0')}
-      </div>
-      <div className="mt-4">
-        <input
-          type="number"
-          name="hours"
-          value={hours}
-          onChange={handleInputChange}
-          className="w-12 mr-1"
-        />
-        <span>hours</span>
-        <input
-          type="number"
-          name="minutes"
-          value={minutes}
-          onChange={handleInputChange}
-          className="w-12 mx-1"
-        />
-        <span>minutes</span>
-        <input
-          type="number"
-          name="seconds"
-          value={seconds}
-          onChange={handleInputChange}
-          className="w-12 mx-1"
-        />
-        <span>seconds</span>
-      </div>
-      <button
-        className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full mt-4 mx-2"
-        onClick={toggleTimer}
-      >
-        {isActive ? 'Pause' : 'Start'}
-      </button>
-      <button
-        className="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded-full mt-4 mx-2"
-        onClick={resetTimer}
-      >
-        Reset
-      </button>
-    </div>
-  );
-}
+//   return (
+//     <div className="text-center">
+//       <h1 className="text-2xl font-bold mt-4">Timer</h1>
+//       <div className="text-4xl mt-4">
+//         {hours.toString().padStart(2, '0')}:
+//         {minutes.toString().padStart(2, '0')}:
+//         {seconds.toString().padStart(2, '0')}
+//       </div>
+//       <div className="mt-4">
+//         <input
+//           type="number"
+//           name="hours"
+//           value={hours}
+//           onChange={handleInputChange}
+//           className="w-12 mr-1"
+//         />
+//         <span>hours</span>
+//         <input
+//           type="number"
+//           name="minutes"
+//           value={minutes}
+//           onChange={handleInputChange}
+//           className="w-12 mx-1"
+//         />
+//         <span>minutes</span>
+//         <input
+//           type="number"
+//           name="seconds"
+//           value={seconds}
+//           onChange={handleInputChange}
+//           className="w-12 mx-1"
+//         />
+//         <span>seconds</span>
+//       </div>
+//       <button
+//         className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full mt-4 mx-2"
+//         onClick={toggleTimer}
+//       >
+//         {isActive ? 'Pause' : 'Start'}
+//       </button>
+//       <button
+//         className="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded-full mt-4 mx-2"
+//         onClick={resetTimer}
+//       >
+//         Reset
+//       </button>
+//     </div>
+//   );
+// }
 
-export default Timer;
+// export default Timer;
